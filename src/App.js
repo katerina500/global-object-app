@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import {Routes, Route, Link } from 'react-router-dom';
+import Home from "./Home/Home";
+import Open from "./Open/Open";
+import Close from "./Close/Close";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='router-nav-container'>
+        <nav className='navigation-menu'>
+          <div className='navigation-menu__container'>
+            <div>
+              <Link to="/home">Главная</Link>
+            </div>
+            <div>
+              <Link to="/redirect">Вернуться</Link>
+            </div>
+            <div>
+              <Link to="/open">Открыть</Link>
+            </div>
+            <div>
+              <Link to="/close">Закрыть</Link>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/redirect" element={<Home />} />
+        <Route path="/open" element={<Open />} />
+        <Route path="/close" element={<Close />} />
+      </Routes>
     </div>
   );
 }
